@@ -1,0 +1,386 @@
+:root {
+  --canvas: #edece7;
+  --paper: #ffffff;
+  --ink: #141416;
+  --heading: #42444a;
+  --body: #6f7480;
+  --muted: #949aa5;
+  --soft: #f1f3f5;
+  --line: #deded5;
+  --accent: #576132;
+  --blue: #0057c8;
+  --font-heading: "Instrument Serif", Georgia, serif;
+  --font-body: "Barlow", "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--canvas);
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--canvas);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+svg {
+  display: block;
+  width: 1em;
+  height: 1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.resume-page {
+  min-height: 100vh;
+  overflow-x: auto;
+  padding: 20px 16px 32px;
+  background: var(--canvas);
+  color: var(--ink);
+}
+
+.resume-paper {
+  position: relative;
+  width: 210mm;
+  height: 297mm;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 11mm 10mm 5mm;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  box-shadow: 0 24px 80px rgba(19, 19, 19, 0.12);
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.paper-actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 3.2mm;
+}
+
+.tool-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.7mm;
+  height: 9.4mm;
+  min-width: 9.4mm;
+  padding: 0 3.2mm;
+  border: 0;
+  border-radius: 3mm;
+  color: #344054;
+  background: #f7f8fa;
+  box-shadow: 0 2px 8px rgba(16, 24, 40, 0.08);
+  font: 500 3.2mm/1 var(--font-body);
+  cursor: pointer;
+  transition: background-color 160ms ease, opacity 160ms ease, transform 160ms ease;
+}
+
+.tool-button:hover {
+  background: #ffffff;
+  opacity: 0.9;
+  transform: translateY(-0.4mm);
+}
+
+.tool-button:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 0.6mm rgba(87, 97, 50, 0.35), 0 2px 8px rgba(16, 24, 40, 0.08);
+}
+
+.tool-button.icon-only {
+  width: 9.4mm;
+  padding: 0;
+}
+
+.resume-header {
+  position: relative;
+  min-height: 49mm;
+}
+
+.header-grid,
+.resume-grid {
+  display: grid;
+  grid-template-columns: 1fr 126mm;
+  gap: 12mm;
+}
+
+.portrait-frame {
+  width: 40mm;
+  height: 40mm;
+  overflow: hidden;
+  background: #d8dac9;
+}
+
+.portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 52%;
+}
+
+.identity {
+  display: flex;
+  min-width: 0;
+  height: 40mm;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.identity h1 {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-heading);
+  font-size: 10mm;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.role-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2.4mm;
+  margin-top: 2.6mm;
+  color: #101828;
+  line-height: 1;
+}
+
+.role {
+  margin: 0;
+  font-size: 3.55mm;
+  font-weight: 500;
+}
+
+.mini-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 1.1mm 2.2mm;
+  color: #ffffff;
+  background: var(--blue);
+  font-size: 3.2mm;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.contact-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8mm 3mm;
+  margin: 2.8mm 0 0;
+  padding: 0;
+  color: #667085;
+  font-size: 3.2mm;
+  line-height: 1.25;
+  list-style: none;
+}
+
+.contact-strip strong {
+  color: #667085;
+  font-weight: 600;
+}
+
+.resume-grid {
+  padding-top: 1mm;
+}
+
+.sidebar,
+.main-column {
+  min-width: 0;
+}
+
+.section {
+  break-inside: avoid;
+}
+
+.section + .section {
+  margin-top: 10mm;
+}
+
+.section h2 {
+  margin: 0 0 3.4mm;
+  color: var(--heading);
+  font-size: 4.25mm;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.info-item,
+.experience-item,
+.skill-block {
+  break-inside: avoid;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 4.2mm;
+}
+
+.info-item h3 {
+  margin: 0;
+  color: #676b73;
+  font-size: 3.35mm;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+.info-item p {
+  margin: 0.6mm 0 0;
+  color: #747984;
+  font-size: 3.2mm;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.period {
+  margin: 0.8mm 0 0;
+  color: var(--muted);
+  font-size: 3.2mm;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.2;
+}
+
+.skill-block + .skill-block {
+  margin-top: 4.8mm;
+}
+
+.skill-block h3 {
+  margin: 0 0 2mm;
+  color: #676b73;
+  font-size: 3.3mm;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.chips,
+.focus-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4mm;
+}
+
+.chips span,
+.focus-tags span {
+  display: inline-flex;
+  border-radius: 1.5mm;
+  padding: 0.6mm 1.3mm;
+  color: var(--muted);
+  background: var(--soft);
+  font-size: 3.2mm;
+  line-height: 1.1;
+}
+
+.intro-section p {
+  max-width: 114mm;
+  margin: 0;
+  color: var(--muted);
+  font-size: 3.3mm;
+  line-height: 1.4;
+}
+
+.focus-tags {
+  margin-top: 2.8mm;
+}
+
+.experience-section {
+  margin-top: 11mm;
+}
+
+.experience-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 7.2mm;
+}
+
+.experience-item h3 {
+  margin: 0;
+  color: #676b73;
+  font-size: 3.55mm;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+.experience-item h3 span {
+  color: var(--muted);
+  font-style: normal;
+}
+
+.experience-item .projects,
+.experience-item .responsibilities-title {
+  margin: 1.2mm 0 0;
+  color: var(--body);
+  font-size: 3.25mm;
+  line-height: 1.3;
+}
+
+.experience-item ul {
+  display: grid;
+  gap: 0.8mm;
+  margin: 1.8mm 0 0;
+  padding-left: 4.5mm;
+  color: var(--body);
+  font-size: 3.25mm;
+  line-height: 1.3;
+  letter-spacing: 0;
+  list-style: disc;
+}
+
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+@media print {
+  html,
+  body,
+  .resume-page {
+    width: 210mm !important;
+    min-height: 297mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+  }
+
+  .resume-no-print {
+    display: none !important;
+  }
+
+  .resume-paper {
+    width: 210mm !important;
+    height: 297mm !important;
+    margin: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+}
